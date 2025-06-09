@@ -1,0 +1,72 @@
+$date
+	Sun Jun 01 00:52:14 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_enc_8_3_priority $end
+$var wire 3 ! a [2:0] $end
+$var wire 1 " valid $end
+$var reg 8 # d [7:0] $end
+$scope module uut $end
+$var wire 8 $ d [7:0] $end
+$var reg 3 % a [2:0] $end
+$var reg 1 & valid $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1&
+b0 %
+b1 $
+b1 #
+1"
+b0 !
+$end
+#10
+b1 %
+b1 !
+b1x #
+b1x $
+#20
+b10 %
+b10 !
+b1xx #
+b1xx $
+#30
+b11 %
+b11 !
+b1xxx #
+b1xxx $
+#40
+b100 %
+b100 !
+b1xxxx #
+b1xxxx $
+#50
+b101 %
+b101 !
+b1xxxxx #
+b1xxxxx $
+#60
+b110 %
+b110 !
+b1xxxxxx #
+b1xxxxxx $
+#70
+b111 %
+b111 !
+b1xxxxxxx #
+b1xxxxxxx $
+#80
+0&
+0"
+b0 %
+b0 !
+b0 #
+b0 $
+#90
