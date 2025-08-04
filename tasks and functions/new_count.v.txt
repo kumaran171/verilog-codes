@@ -1,0 +1,17 @@
+module count(output [7:0] c, input [7:0] n);
+  function automatic [7:0] ones;
+     input [7:0] n;
+     integer i;
+     integer k;
+     k=0;
+     while(i<=8) begin
+        if(n[i]) begin
+            k=k+1;
+        end
+     end
+     ones=k;
+  endfunction
+  assign c=ones(n);
+endmodule
+ 
+  
