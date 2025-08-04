@@ -1,0 +1,48 @@
+module tb_half_duplex_parity;
+ reg clk,rst,start,stop;
+ reg [7:0] din;
+ reg [1:0] tx_mode;
+ wire done;
+ wire [7:0] dout;
+ half_duplex_parity uut(done,dout,din,start,stop,clk,rst,tx_mode);
+ always #5 clk=~clk;
+ initial begin
+  $dumpfile("rus.vcd");
+  $dumpvars(0,tb_half_duplex_parity);
+  $display("clk rst start stop din            dout               done");
+  $monitor("%b %b %b %b %b  %b         %b         %b",clk,rst,start,stop,tx_mode,din,dout,done);
+  clk=0;
+  rst=0;
+  start=1;
+  stop=0;
+  din=8'b0;
+  tx_mode=2'b0;
+  #10;
+  rst=1;
+  tx_mode=2'b01;
+  start=0;
+  din=8'b10000001;
+  #10;
+  start=1;
+  #80;
+  stop=1;
+  #20;
+  clk=0;
+  rst=0;
+  start=1;
+  stop=0;
+  din=8'b0;
+  tx_mode=2'b0;
+  #10;
+  rst=1;
+  tx_mode=2'b10;
+  start=0;
+  din=8'b10000011;
+  #10;
+  start=1;
+  #80;
+  stop=1;
+  #20;
+  $finish;
+ end
+endmodule
