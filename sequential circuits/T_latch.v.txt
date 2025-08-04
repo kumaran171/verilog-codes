@@ -1,0 +1,19 @@
+module T_latch (
+    input T,
+    input clk,
+    output reg q,
+    output wire qbar
+);
+    assign qbar = ~q;
+
+    initial q = 0;
+
+    always @(clk or T) begin
+        if (clk) begin
+            if (T)
+                q <= ~q;
+            // else: hold q
+        end
+    end
+endmodule
+
